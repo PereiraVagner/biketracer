@@ -1,0 +1,22 @@
+<br><br><br>
+
+<h3>Cadastro Motorista</h3>
+
+<table class="table table-striped table-bordered table-dark table-hover">
+    <tr>
+      <th class="text-center">Motorista</th>
+      <th class="text-center">Concluída</th>
+      <th class="text-center"> <button class="btn btn-sm btn-success">Novo</button></th>
+    </tr>
+
+    <tr *ngFor="let motorista of listagemDeMotoristas">
+      <td>{{motorista.nome}}</td>
+
+      <td class="text-center"> <input type="checkbox"> </td>
+      <td class="text-center">
+        <button title="Editar" class="btn btn-xs btn-info"  >Editar</button>
+        <button title="Excluir" class="btn btn-xs btn-danger"  >Excluir</button>
+      </td>
+    </tr>
+
+</table>
