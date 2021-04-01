@@ -62,4 +62,16 @@ export class MotoristaComponent implements OnInit {
     this.motoristaEditar = t1;
   }
 
+  alterarAtributoConcluida(checado:boolean)
+  {
+    this.motoristaEditar.concluida = checado;
+  }
+
+  alterarMotorista()
+  {
+    this.banco.list('motorista').update(
+      this.motoristaEditar.key, {nome: this.motoristaEditar.nome, concluida:this.motoristaEditar.concluida
+  });
+      this.modoEdicao = !this.modoEdicao;
+  }
 }

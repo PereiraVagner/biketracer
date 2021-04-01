@@ -3,6 +3,7 @@ import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
 import { Motorista } from 'src/app/model/motorista';
 import { Router } from "@angular/router";
 
+
 @Component({
   selector: 'app-motoristalocalizacao',
   templateUrl: './motoristalocalizacao.component.html',
@@ -12,6 +13,7 @@ export class MotoristalocalizacaoComponent implements OnInit {
 
   nomemotorista: Motorista;
   referenciaTabelaMotorista: AngularFireList<Motorista> = null;
+
 
   constructor(private banco:AngularFireDatabase, private router: Router) {
     this.nomemotorista = new Motorista(null, null, null);

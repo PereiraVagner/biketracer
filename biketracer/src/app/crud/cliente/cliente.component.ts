@@ -11,6 +11,7 @@ import { map } from 'rxjs/operators';
   styleUrls: ['./cliente.component.css']
 })
 export class ClienteComponent implements OnInit {
+  c: Cliente;
 
   referenciaTabelaCliente: AngularFireList<Cliente> = null;
   clientes: any;
@@ -27,8 +28,8 @@ export class ClienteComponent implements OnInit {
 
   incluirCliente():void
   {
-    let c = new Cliente(1, "Teste inserção", 30);
-    this.banco.list('cliente').push(c)
+    //let c = new Cliente(Paulo, "Teste inserção", 30);
+    this.banco.list('cliente').push(this.c)
       .then((resultado:any) => {
         console.log(resultado.key);
       })

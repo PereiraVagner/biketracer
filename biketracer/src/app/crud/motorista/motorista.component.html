@@ -11,6 +11,7 @@
       <td>{{motorista.nome}}
         <div *ngIf="modoEdicao==true && motorista.key==motoristaEditar.key">
 
+
           <form #edicao="ngForm" (submit)="alterarMotorista()">
             <div>
               <label for="nome">Nome do Motorista:</label>><br>
@@ -18,7 +19,7 @@
 
               <label for="concluida">Concluida:</label>
 
-              <input #checkMotorista type="checkbox" id="checkMotoristaEditar" [checked]="motoristaEditar.concluida"
+              <input #checkMotoristaEditar type="checkbox" id="checkMotoristaEditar" [checked]="motoristaEditar.concluida"
                 (change)="alterarAtributoConcluida(checkMotoristaEditar.checked)">
 
             </div>
