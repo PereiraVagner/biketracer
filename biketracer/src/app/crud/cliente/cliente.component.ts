@@ -25,7 +25,7 @@ export class ClienteComponent implements OnInit {
 
   }
 
-  incluirCliente()
+  incluirCliente():void
   {
     let c = new Cliente(1, "Teste inserção", 30);
     this.banco.list('cliente').push(c)

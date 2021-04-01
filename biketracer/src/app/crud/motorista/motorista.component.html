@@ -1,22 +1,41 @@
-<br><br><br>
-
-<h3>Cadastro Motorista</h3>
+<h3>Motoristas</h3>
 
 <table class="table table-striped table-bordered table-dark table-hover">
     <tr>
-      <th class="text-center">Motorista</th>
+      <th class="text-center">Nome</th>
       <th class="text-center">Concluída</th>
       <th class="text-center"> <button class="btn btn-sm btn-success">Novo</button></th>
     </tr>
 
-    <tr *ngFor="let motorista of listagemDeMotoristas">
-      <td>{{motorista.nome}}</td>
+    <tr *ngFor="let motorista of motoristas">
+      <td>{{motorista.nome}}
+        <div *ngIf="modoEdicao==true && motorista.key==motoristaEditar.key">
 
-      <td class="text-center"> <input type="checkbox"> </td>
+          <form #edicao="ngForm" (submit)="alterarMotorista()">
+            <div>
+              <label for="nome">Nome do Motorista:</label>><br>
+              <input type="text" id="nomeEditar" name="nomeEditar" [(ngModel)]="motoristaEditar.nome" required> <br>
+
+              <label for="concluida">Concluida:</label>
+
+              <input #checkMotorista type="checkbox" id="checkMotoristaEditar" [checked]="motoristaEditar.concluida"
+                (change)="alterarAtributoConcluida(checkMotoristaEditar.checked)">
+
+            </div>
+
+            <button type="submit" class="btn btn-primary">Editar</button>
+
+          </form>
+
+        </div>
+      </td>
+
+      <td class="text-center"> <input type="checkbox" [checked]="motorista.concluida"> </td>
       <td class="text-center">
-        <button title="Editar" class="btn btn-xs btn-info"  >Editar</button>
-        <button title="Excluir" class="btn btn-xs btn-danger"  >Excluir</button>
+        <button title="Editar" class="btn btn-xs btn-info" (click)="ativarModoEdicao(motorista)" >Editar</button>
+        <button title="Excluir" class="btn btn-xs btn-danger" (click)="excluirMotorista(motorista)" >Excluir</button>
       </td>
     </tr>
 
 </table>
+

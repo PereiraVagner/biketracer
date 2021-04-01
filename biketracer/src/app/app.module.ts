@@ -10,6 +10,9 @@ import { environment} from '../environments/environment';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 
+import { FormsModule } from '@angular/forms';
+import { AgmCoreModule } from '@agm/core';
+
 @NgModule({
   declarations: [
     AppComponent
@@ -17,7 +20,11 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule, CrudModule, AngularFireModule.initializeApp(environment.firebase), AngularFireDatabaseModule
+    NgbModule, CrudModule, AngularFireModule.initializeApp(environment.firebase),
+    AngularFireDatabaseModule, FormsModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyCk5y5ZYJ1vWgKorpw3XnWNypDdaa4PJFk'
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

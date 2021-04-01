@@ -1,7 +1,18 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-const routes: Routes = [];
+import { MotoristaComponent } from './crud/motorista/motorista.component';
+import { ClienteComponent } from './crud/cliente/cliente.component';
+import { MotoristalocalizacaoComponent } from './crud/motoristalocalizacao/motoristalocalizacao.component';
+
+const routes: Routes = [
+  {path: 'listamotorista', component:MotoristaComponent },
+  {path: 'cadastrarcliente', component:ClienteComponent},
+  {path: 'cadastrarlocalizacao', component:MotoristalocalizacaoComponent},
+
+  {path: '', redirectTo: '/home', pathMatch:'full'}
+];
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

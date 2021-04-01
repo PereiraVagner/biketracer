@@ -1,4 +1,4 @@
 export class Cliente  {
 
-  constructor ( public id: number, public nome: string, public idade: number){}
+  constructor ( public id: string, public nome: string, public idade: number){}
 }
