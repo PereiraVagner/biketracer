@@ -1,4 +1,4 @@
 export class Motorista  {
 
-  constructor ( public id: string, public nome: string, public concluida: boolean){}
+  constructor ( public key: string, public nome: string, public concluida: boolean){}
 }
