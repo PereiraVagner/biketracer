@@ -4,15 +4,25 @@
 
 export const environment = {
   production: false,
-  firebase: {
-    apiKey: "AIzaSyBwcfGS836MaVGp9Ib6bETvygiVlRUSvFE",
-    authDomain: "biketracer-997be.firebaseapp.com",
-    projectId: "biketracer-997be",
-    storageBucket: "biketracer-997be.appspot.com",
-    messagingSenderId: "340183440557",
-    appId: "1:340183440557:web:3556441c34d160c49efa24",
-    measurementId: "G-B87238C31L"
+  firebase : {
+    apiKey: "AIzaSyBzsR2BYcc9nWcA0bDuIC2cSrsGtvsIZv0",
+    authDomain: "esp32-1e842.firebaseapp.com",
+    databaseURL: "https://esp32-1e842-default-rtdb.firebaseio.com",
+    projectId: "esp32-1e842",
+    storageBucket: "esp32-1e842.appspot.com",
+    messagingSenderId: "840403491640",
+    appId: "1:840403491640:web:e19e5e5c28e49270363fcd",
+    measurementId: "G-BX2XCL0X8G"
   }
+  //firebase: {
+    //apiKey: "AIzaSyBwcfGS836MaVGp9Ib6bETvygiVlRUSvFE",
+    //authDomain: "biketracer-997be.firebaseapp.com",
+    //projectId: "biketracer-997be",
+    //storageBucket: "biketracer-997be.appspot.com",
+   // messagingSenderId: "340183440557",
+    //appId: "1:340183440557:web:3556441c34d160c49efa24",
+    //measurementId: "G-B87238C31L"
+ // }
 };
 
 /*

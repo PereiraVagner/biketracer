@@ -21,15 +21,16 @@ export class MotoristalistaComponent implements OnInit {
   motoristaexcluir: Motorista;
   modoEdicao:boolean = false;
   motoristaEditar: Motorista;
+  campoDeBusca: string;
 
 
   constructor(private banco: AngularFireDatabase, private router:Router) {
-    this.referenciaTabelaMotorista = banco.list('/motorista');
+    this.referenciaTabelaMotorista = banco.list('/motorista');// ou ('/motoristacadastro');
    }
 
   ngOnInit(): void {
     this.obterMotoristas();
-    this.m = new Motorista(null, null, null);
+    this.m = new Motorista(null, null, null, null);
 
   }
 
@@ -71,7 +72,14 @@ export class MotoristalistaComponent implements OnInit {
   {
     this.banco.list('motorista').update(
       this.motoristaEditar.key, {nome: this.motoristaEditar.nome, concluida:this.motoristaEditar.concluida
-  });
+    });
       this.modoEdicao = !this.modoEdicao;
+  }
+
+  buscarPorNome()
+  {
+    this.banco.list('motorista', ref => ref.orderByChild('nome').endAt(this.campoDeBusca + '\uf8ff')).valueChanges()
+    .subscribe(resultado => {this.motoristas = resultado});
+
   }
 }

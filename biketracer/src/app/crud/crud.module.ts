@@ -6,13 +6,16 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { MotoristalocalizacaoComponent } from './motoristalocalizacao/motoristalocalizacao.component';
 import { MotoristalistaComponent } from './motoristalista/motoristalista.component';
 import { MotoristacadastroComponent } from './motoristacadastro/motoristacadastro.component';
-
+import { AgmCoreModule } from '@agm/core';
 
 
 @NgModule({
   declarations: [MotoristaComponent, ClienteComponent, MotoristalocalizacaoComponent, MotoristalistaComponent, MotoristacadastroComponent],
   imports: [
-    CommonModule, ReactiveFormsModule, FormsModule
+    CommonModule, ReactiveFormsModule, FormsModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyAhoRsktsThcY3vti3xQzs3a5KZT4y8S4w'
+    })
   ],
   exports: [MotoristaComponent, ClienteComponent, MotoristalocalizacaoComponent, MotoristacadastroComponent, MotoristalistaComponent]
 

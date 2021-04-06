@@ -1,3 +1,10 @@
+<form #busca="ngForm">
+  <div>
+    <label>Busca por nome:</label>
+    <input type="text" id="campoDeBusca" name="campoDeBusca" [(ngModel)]="campoDeBusca" (keydown)="buscarPorNome()">
+  </div>
+</form>
+<br>
 
 <h3>Motoristas</h3>
 
@@ -5,29 +12,35 @@
   <thead>
     <tr>
       <th scope="col" class="text-center">Nome</th>
-      <th scope="col" class="text-center">Concluída</th>
+      <th scope="col" class="text-center">Codigo</th>
+      <th scope="col" class="text-center">Habilitação</th>
+      <th scope="col" class="text-center">Disponivel</th>
       <th scope="col" class="text-center"> <button class="btn btn-sm btn-success">Novo</button></th>
     </tr>
   </thead>
     <tbody>
       <tr *ngFor="let motoristalista of motoristas">
         <td>{{motoristalista.nome}}
+          <td>{{motoristalista.codigo}}
+            <td>{{motoristalista.habilitacao}}
+
           <div *ngIf="modoEdicao==true && motoristalista.key==motoristaEditar.key">
-
-
             <form #edicao="ngForm" (submit)="alterarMotorista()">
               <div>
                 <label for="nome">Nome do Motorista: </label><br>
                 <input type="text" id="nomeEditar" name="nomeEditar" [(ngModel)]="motoristaEditar.nome" required> <br>
+                <label for="nome">Código ID: </label><br>
+                <input type="text" id="codigoEditar" name="nomeEditar" [(ngModel)]="motoristaEditar.codigo" required> <br>
+                <label for="nome">Numero Habilitação: </label><br>
 
-                <label for="concluida">Concluida:</label>
+                <input type="text" id="nomeEditar" name="nomeEditar" [(ngModel)]="motoristaEditar.nome" required> <br>
+                <label for="concluida">Disponível:</label>
 
                 <input #checkMotoristaEditar type="checkbox" id="checkMotoristaEditar" [checked]="motoristaEditar.concluida"
                   (change)="alterarAtributoConcluida(checkMotoristaEditar.checked)">
 
+                  <button type="submit" class="btn btn-primary">Editar</button>
               </div>
-
-              <button type="submit" class="btn btn-primary">Editar</button>
 
             </form>
 

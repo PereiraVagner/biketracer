@@ -4,6 +4,12 @@ import { Motorista } from 'src/app/model/motorista';
 import { Router } from "@angular/router";
 
 
+import { Localizacao } from 'src/app/model/motorista';
+import { map } from 'rxjs/operators';
+import { google } from '@google/maps';
+
+
+
 @Component({
   selector: 'app-motoristalocalizacao',
   templateUrl: './motoristalocalizacao.component.html',
@@ -11,26 +17,33 @@ import { Router } from "@angular/router";
 })
 export class MotoristalocalizacaoComponent implements OnInit {
 
-  nomemotorista: Motorista;
   referenciaTabelaMotorista: AngularFireList<Motorista> = null;
+  referenciaTabelaCadastrarMotorista:AngularFireList<Localizacao> = null;
+  lng: number = 13;
+  lat: number = 80;
+  zoom:number = 15;
+  localizacoes: any;
 
 
-  constructor(private banco:AngularFireDatabase, private router: Router) {
-    this.nomemotorista = new Motorista(null, null, null);
+    constructor(private banco:AngularFireDatabase, private router: Router) {
     this.referenciaTabelaMotorista = banco.list('/motorista');
+    this.referenciaTabelaCadastrarMotorista = banco.list('/localizacao');
    }
 
-  ngOnInit(): void {
-  }
+   ngOnInit():void{
+    this.obterLocalizacao();
+   }
 
-  incluirMotorista(){
-    this.referenciaTabelaMotorista.push(this.nomemotorista);
-    this.router.navigate(['/localizacaomotorista']);
-  }
+   obterLocalizacao():void
+   {
+      this.referenciaTabelaCadastrarMotorista.snapshotChanges().pipe(
+      map(changes => changes.map(c => ({ key: c.payload, ... c.payload.val()}))))
+            .subscribe(data => {
+              this.localizacoes = data;
+              console.log(this.localizacoes);
+            })
 
-  alterarAtributoConcluida(checked:boolean)
-  {
-    this.nomemotorista.concluida = checked;
-  }
 
-}
+    }
+
+ }

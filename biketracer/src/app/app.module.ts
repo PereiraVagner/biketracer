@@ -11,6 +11,9 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 
 import { FormsModule } from '@angular/forms';
+import { NgxBootstrapIconsModule} from 'ngx-bootstrap-icons';
+
+
 
 
 @NgModule({
@@ -22,6 +25,7 @@ import { FormsModule } from '@angular/forms';
     AppRoutingModule,
     NgbModule, CrudModule, AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule, FormsModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
