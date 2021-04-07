@@ -14,7 +14,7 @@ export class MotoristacadastroComponent implements OnInit {
     referenciaTabelaMotorista: AngularFireList<Motorista> = null;
 
     constructor(private banco:AngularFireDatabase, private router: Router) {
-      this.nomemotorista= new Motorista(null, null, null,null);
+      this.nomemotorista= new Motorista(null, null, null, null, null);
       this.referenciaTabelaMotorista = banco.list('/motorista');
      }
 

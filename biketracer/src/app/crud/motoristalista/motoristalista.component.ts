@@ -22,6 +22,7 @@ export class MotoristalistaComponent implements OnInit {
   modoEdicao:boolean = false;
   motoristaEditar: Motorista;
   campoDeBusca: string;
+  exibirBarra:boolean = false;
 
 
   constructor(private banco: AngularFireDatabase, private router:Router) {
@@ -30,7 +31,7 @@ export class MotoristalistaComponent implements OnInit {
 
   ngOnInit(): void {
     this.obterMotoristas();
-    this.m = new Motorista(null, null, null, null);
+    this.m = new Motorista(null, null, null, null, null);
 
   }
 
@@ -71,7 +72,8 @@ export class MotoristalistaComponent implements OnInit {
   alterarMotorista()
   {
     this.banco.list('motorista').update(
-      this.motoristaEditar.key, {nome: this.motoristaEditar.nome, concluida:this.motoristaEditar.concluida
+      this.motoristaEditar.key, {nome: this.motoristaEditar.nome, codigo: this.motoristaEditar.codigo,
+        hbt: this.motoristaEditar.hbt
     });
       this.modoEdicao = !this.modoEdicao;
   }
@@ -81,5 +83,9 @@ export class MotoristalistaComponent implements OnInit {
     this.banco.list('motorista', ref => ref.orderByChild('nome').endAt(this.campoDeBusca + '\uf8ff')).valueChanges()
     .subscribe(resultado => {this.motoristas = resultado});
 
+  }
+  exibirBarraDeBusca()
+  {
+    this.exibirBarra = !this.exibirBarra;
   }
 }

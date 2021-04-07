@@ -8,6 +8,7 @@ import { MotoristalocalizacaoComponent } from './crud/motoristalocalizacao/motor
 import { MotoristacadastroComponent } from './crud/motoristacadastro/motoristacadastro.component';
 import { MotoristalistaComponent } from './crud/motoristalista/motoristalista.component';
 import { Motorista } from './model/motorista';
+import { AppComponent } from './app.component';
 
 
 const routes: Routes = [
@@ -16,6 +17,7 @@ const routes: Routes = [
   {path: 'motoristalocalizacao', component:MotoristalocalizacaoComponent},
   {path: 'motoristacadastro', component:MotoristacadastroComponent},
   {path: 'motoristamain', component:MotoristaComponent},
+
 
   {path: '', redirectTo: '', pathMatch:'full'}
 ];
