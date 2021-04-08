@@ -1,4 +1,21 @@
 agm-map {
-  height: 200px;
+  height: 500px;
   width: 100%;
+}
+
+.flex-pai{
+  display:flex;
+  flex-direction: row;
+}
+
+.flex-filho-coluna{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-filho-linha{
+  flex: 1;
+  display: flex;
+  flex-direction: row;
 }

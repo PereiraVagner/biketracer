@@ -1,64 +1,66 @@
-<button (click)="exibirBarraDeBusca()">Pesquisar</button>
-<form #busca="ngForm">
-  <div *ngIf="exibirBarra==true">
-    <label>Busca por nome:</label>
-    <input type="text" id="campoDeBusca" name="campoDeBusca" [(ngModel)]="campoDeBusca" (keyup)="buscarPorNome()">
-  </div>
-</form>
-<br>
-
-<h3>Motoristas</h3>
-
-<table class="table table-striped table-dark table-bordered table-hover">
-  <thead>
-    <tr>
-      <th scope="col" class="text-center">Nome</th>
-      <th scope="col" class="text-center">Códigoo</th>
-      <th scope="col" class="text-center">Habilitação</th>
-      <th scope="col" class="text-center">Disponivel</th>
-      <th scope="col" class="text-center"> <a href="../motoristacadastro" class="btn btn-success btn-sm active" role="button" aria-pressed="true">Novo</a>
-      </th>
-    </tr>
-  </thead>
-    <tbody>
-      <tr *ngFor="let motoristalista of motoristas">
-        <td>{{motoristalista.codigo}}
-          <td>{{motoristalista.nome}}
-            <td>{{motoristalista.hbt}}
-
-
-          <div *ngIf="modoEdicao==true && motoristalista.key==motoristaEditar.key">
-            <form  #edicao="ngForm" (submit)="alterarMotorista()">
-              <div>
-                <label for="nome">Código ID do Motorista: </label><br>
-                <input type="text" id="codigoEditar" name="codigoEditar" [(ngModel)]="motoristaEditar.codigo" required> <br>
-                <label for="nome">Nome do Motorista: </label><br>
-                <input type="text" id="nomeEditar" name="nomeEditar" [(ngModel)]="motoristaEditar.nome" required> <br>
-                <label for="nome">Numero Habilitação: </label><br>
-                <input type="text" id="habilitacaoEditar" name="habilitacaoEditar" [(ngModel)]="motoristaEditar.hbt" required> <br>
-                <br>
-
-                <label for="concluida">Disponível:</label>
-                <input #checkMotoristaEditar type="checkbox" id="checkMotoristaEditar" [checked]="motoristaEditar.concluida"
-                  (change)="alterarAtributoConcluida(checkMotoristaEditar.checked)">
-                </div>
-
-                <button type="submit" class="btn btn-primary">Editar</button>
-
-
-            </form>
-
-          </div>
-        </td>
-
-        <td class="text-center"> <input type="checkbox" [checked]="motoristalista.concluida"> </td>
-        <td class="text-center">
-          <button title="Editar" class="btn btn-xs btn-info" (click)="ativarModoEdicao(motoristalista)" >Editar</button>
-          <button title="Excluir" class="btn btn-xs btn-danger" (click)="excluirMotorista(motoristalista)" >Excluir</button>
-        </td>
-      </tr>
-      <div class="alert alert-primary" *ngIf="motoristas.length == 0">
-        Nehuma tarefa cadastrada!
+<div class="container-fluid">
+    <button (click)="exibirBarraDeBusca()">Pesquisar</button>
+    <form #busca="ngForm">
+      <div *ngIf="exibirBarra==true">
+        <label>Busca por nome:</label>
+        <input type="text" id="campoDeBusca" name="campoDeBusca" [(ngModel)]="campoDeBusca" (keyup)="buscarPorNome()">
       </div>
-    </tbody>
-</table>
+    </form>
+    <br>
+
+    <h3>Motoristas</h3>
+
+    <table class="table table-striped table-dark table-bordered table-hover">
+      <thead>
+        <tr>
+          <th scope="col" class="text-center">Nome</th>
+          <th scope="col" class="text-center">Códigoo</th>
+          <th scope="col" class="text-center">Habilitação</th>
+          <th scope="col" class="text-center">Disponivel</th>
+          <th scope="col" class="text-center"> <a href="../motoristacadastro" class="btn btn-success btn-sm active" role="button" aria-pressed="true">Novo</a>
+          </th>
+        </tr>
+      </thead>
+        <tbody>
+          <tr *ngFor="let motoristalista of motoristas">
+            <td>{{motoristalista.codigo}}
+              <td>{{motoristalista.nome}}
+                <td>{{motoristalista.hbt}}
+
+
+              <div *ngIf="modoEdicao==true && motoristalista.key==motoristaEditar.key">
+                <form  #edicao="ngForm" (submit)="alterarMotorista()">
+                  <div>
+                    <label for="nome">Código ID do Motorista: </label><br>
+                    <input type="text" id="codigoEditar" name="codigoEditar" [(ngModel)]="motoristaEditar.codigo" required> <br>
+                    <label for="nome">Nome do Motorista: </label><br>
+                    <input type="text" id="nomeEditar" name="nomeEditar" [(ngModel)]="motoristaEditar.nome" required> <br>
+                    <label for="nome">Numero Habilitação: </label><br>
+                    <input type="text" id="habilitacaoEditar" name="habilitacaoEditar" [(ngModel)]="motoristaEditar.hbt" required> <br>
+                    <br>
+
+                    <label for="concluida">Disponível:</label>
+                    <input #checkMotoristaEditar type="checkbox" id="checkMotoristaEditar" [checked]="motoristaEditar.concluida"
+                      (change)="alterarAtributoConcluida(checkMotoristaEditar.checked)">
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Editar</button>
+
+
+                </form>
+
+              </div>
+            </td>
+
+            <td class="text-center"> <input type="checkbox" [checked]="motoristalista.concluida"> </td>
+            <td class="text-center">
+              <button title="Editar" class="btn btn-xs btn-info" (click)="ativarModoEdicao(motoristalista)" >Editar</button>
+              <button title="Excluir" class="btn btn-xs btn-danger" (click)="excluirMotorista(motoristalista)" >Excluir</button>
+            </td>
+          </tr>
+          <div class="alert alert-primary" *ngIf="motoristas.length == 0">
+            Nehuma tarefa cadastrada!
+          </div>
+        </tbody>
+    </table>
+</div>

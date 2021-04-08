@@ -1,25 +1,36 @@
+<div class="container-fluid">
 
- <h1>Texto teste</h1>
-<!-- this creates a google map on the page with the given lat/lng from -->
-<!-- the component as the initial center of the map: -->
-<agm-map [latitude]="lat" [longitude]="lng">
-  <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
-</agm-map>
+  <div class='flex-pai w-100' *ngIf="localizacao">
+    <div class='flex-filho-coluna'>
+      <span
+        ><p>Longitude</p>
+        {{ localizacao.lat }}</span
+      >
+      <span
+        ><p>Latitude</p>
+        {{ localizacao.long }}</span
+      >
 
+      <h2>Local</h2>
+      <p>
+        Viagem teve ínicio:
+        <br />
+        <b>10:00</b> horas, na data <b>04/04/2021</b>
+      </p>
+    </div>
+    <div class='flex-filho-linha w-100'>
+        <agm-map
+          class="mapa"
+          [latitude]="localizacao.lat"
+          [zoom]="zoom"
+          [longitude]="localizacao.long"
+        >
+          <agm-marker
+            [latitude]="localizacao.lat"
+            [longitude]="localizacao.long"
+          ></agm-marker>
+        </agm-map>
+    </div>
+  </div>
+</div>
 
- <!-- <tr *ngFor="let localizacao of localizacoes">
-  <td><p>Longitude</p>{{localizacao.loc_lat}}</td>
-  <td><p>Latitude</p>{{localizacao.loc_long}}</td>
-
-  <h2>Local</h2>
-  <p>Viagem teve ínicio:
-  <br>
-  <b>10:00</b> horas, na data <b>04/04/2021</b>
-  </p> -->
-
-
-  <!-- <div class="from-group col-md2">
-    <agm-map class="mapa" [latitude]="localizacao.loc_lat" [zoom]="zoom" [longitude]="localizacao.loc_long">
-      <agm-marker [latitude]="localizacao.loc_lat" [longitude]="localizacao.loc_long"></agm-marker>
-    </agm-map>
-    </div> -->

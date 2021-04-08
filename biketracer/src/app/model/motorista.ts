@@ -5,5 +5,5 @@ export class Motorista  {
 
 export class Localizacao  {
 
-  constructor ( public key: string, public loc_lat:string, public loc_long:string){}
+  constructor ( public key: string, public lat:string, public long:string){}
 }

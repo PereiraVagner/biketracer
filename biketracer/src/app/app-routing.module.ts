@@ -17,7 +17,7 @@ const routes: Routes = [
   {path: 'motoristalocalizacao', component:MotoristalocalizacaoComponent},
   {path: 'motoristacadastro', component:MotoristacadastroComponent},
   {path: 'motoristamain', component:MotoristaComponent},
-
+  {path: 'home', redirectTo: '', pathMatch:'full'},
 
   {path: '', redirectTo: '', pathMatch:'full'}
 ];

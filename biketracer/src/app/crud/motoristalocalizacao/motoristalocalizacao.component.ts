@@ -22,12 +22,12 @@ export class MotoristalocalizacaoComponent implements OnInit {
   lng: number = 13;
   lat: number = 80;
   zoom:number = 15;
-  localizacoes: any;
+  localizacao: Localizacao;
 
 
     constructor(private banco:AngularFireDatabase, private router: Router) {
     this.referenciaTabelaMotorista = banco.list('/motorista');
-    this.referenciaTabelaCadastrarMotorista = banco.list('/localizacao');
+    this.referenciaTabelaCadastrarMotorista = banco.list('/location');
    }
 
    ngOnInit():void{
@@ -39,8 +39,8 @@ export class MotoristalocalizacaoComponent implements OnInit {
       this.referenciaTabelaCadastrarMotorista.snapshotChanges().pipe(
       map(changes => changes.map(c => ({ key: c.payload, ... c.payload.val()}))))
             .subscribe(data => {
-              this.localizacoes = data;
-              console.log(this.localizacoes);
+              this.localizacao = data[data.length - 1];
+              console.log(this.localizacao);
             })
 
 

@@ -1,23 +1,23 @@
-<br><br><br>
+<div class="container-fluid">
+    <h3>Cadastro Cliente</h3>
 
-<h3>Cadastro Cliente</h3>
+    <table class="table table-striped table-bordered table-dark table-hover">
+        <tr>
+          <th class="text-center">Nome</th>
+          <th class="text-center">Idade</th>
+          <th class="text-center"> <button class="btn btn-sm btn-success">Novo</button></th>
+        </tr>
 
-<table class="table table-striped table-bordered table-dark table-hover">
-    <tr>
-      <th class="text-center">Nome</th>
-      <th class="text-center">Idade</th>
-      <th class="text-center"> <button class="btn btn-sm btn-success">Novo</button></th>
-    </tr>
+        <tr *ngFor="let cliente of clientes">
+          <td>{{cliente.nome}}</td>
+          <td>{{cliente.idade}}</td>
 
-    <tr *ngFor="let cliente of clientes">
-      <td>{{cliente.nome}}</td>
-      <td>{{cliente.idade}}</td>
+          <td class="text-center">
+            <button title="Editar" class="btn btn-xs btn-info"  >Editar</button>
+            <button title="Excluir" class="btn btn-xs btn-danger"  >Excluir</button>
+          </td>
+        </tr>
 
-      <td class="text-center">
-        <button title="Editar" class="btn btn-xs btn-info"  >Editar</button>
-        <button title="Excluir" class="btn btn-xs btn-danger"  >Excluir</button>
-      </td>
-    </tr>
-
-</table>
+    </table>
+</div>
 
