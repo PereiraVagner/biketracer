@@ -8,9 +8,49 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 title= "biketracer"
-imgBackground:any;
+itemsProfile = [
+  {
+    title: 'Logout',
+  },
+];
+itemsMotorista = [
+  {
+    title: 'Novo',
+    link: '/motoristacadastro'
+  },
+  {
+    title: 'Ver motoristas',
+    link: '/motoristalista'
+  },
+];
+itemsClientes = [
+  {
+    title: 'Novo',
+    link: '/clientecadastro'
+  },
+  {
+    title: 'Ver Clintes',
+    link: '/clientelista'
+  },
+];
+itemsViagens = [
+  {
+    title: 'Nova',
+    link: '/viagemcadstro'
+  },
+  {
+    title: 'Ver Viagens',
+    link: '/viagemlista'
+  },
+];
 
+toggleSidebar(){
 
+}
+
+navigateHome(){
+
+}
 
 }
 

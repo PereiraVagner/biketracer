@@ -7,6 +7,7 @@ import { MotoristalocalizacaoComponent } from './motoristalocalizacao/motoristal
 import { MotoristalistaComponent } from './motoristalista/motoristalista.component';
 import { MotoristacadastroComponent } from './motoristacadastro/motoristacadastro.component';
 import { AgmCoreModule } from '@agm/core';
+import { NbCardModule, NbCheckboxModule, NbInputModule, NbLayoutModule } from '@nebular/theme';
 
 
 @NgModule({
@@ -15,7 +16,11 @@ import { AgmCoreModule } from '@agm/core';
     CommonModule, ReactiveFormsModule, FormsModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyAhoRsktsThcY3vti3xQzs3a5KZT4y8S4w'
-    })
+    }),
+    NbLayoutModule,
+    NbCardModule,
+    NbInputModule,
+    NbCheckboxModule
   ],
   exports: [MotoristaComponent, ClienteComponent, MotoristalocalizacaoComponent, MotoristacadastroComponent, MotoristalistaComponent]
 

@@ -13,10 +13,13 @@ import { AppComponent } from './app.component';
 
 const routes: Routes = [
   {path: 'motoristalista', component:MotoristalistaComponent },
-  {path: 'cadastrarcliente', component:ClienteComponent},
-  {path: 'motoristalocalizacao', component:MotoristalocalizacaoComponent},
   {path: 'motoristacadastro', component:MotoristacadastroComponent},
-  {path: 'motoristamain', component:MotoristaComponent},
+  {path: 'localizacao', component:MotoristalocalizacaoComponent},
+  {path: 'clientelista', component:ClienteComponent},
+  {path: 'clientecadastro', component:ClienteComponent},
+  {path: 'viagemlista', component:MotoristalistaComponent },
+  {path: 'vaigemcadastro', component:MotoristacadastroComponent},
+  // {path: 'motoristamain', component:MotoristaComponent},
   {path: 'home', redirectTo: '', pathMatch:'full'},
 
   {path: '', redirectTo: '', pathMatch:'full'}

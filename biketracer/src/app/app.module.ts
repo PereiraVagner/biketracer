@@ -9,9 +9,11 @@ import { CrudModule } from './crud/crud.module';
 import { environment} from '../environments/environment';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { FormsModule } from '@angular/forms';
 import { NgxBootstrapIconsModule} from 'ngx-bootstrap-icons';
+import { NbThemeModule, NbLayoutModule, NbSidebarModule, NbSidebarService, NbIconModule, NbActionsModule, NbSearchModule, NbContextMenuModule, NbMenuService, NbMenuModule } from '@nebular/theme';
 
 
 
@@ -23,11 +25,18 @@ import { NgxBootstrapIconsModule} from 'ngx-bootstrap-icons';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule, CrudModule, AngularFireModule.initializeApp(environment.firebase),
-    AngularFireDatabaseModule, FormsModule
-
+    BrowserAnimationsModule,
+    NgbModule, AngularFireModule.initializeApp(environment.firebase),
+    AngularFireDatabaseModule, FormsModule,
+    CrudModule,
+    NbLayoutModule,
+    NbMenuModule.forRoot(),
+    NbThemeModule.forRoot({ name: 'dark' }),
+    NbIconModule,
+    NbActionsModule,
+    NbContextMenuModule,
   ],
-  providers: [],
+  providers: [NbSidebarService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

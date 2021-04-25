@@ -1,25 +1,44 @@
-<div class="container-fluig">
+<!-- <div class="container-fluig">
     <h2 class="text-center">Cadastrar Motorista</h2>
 
-    <form class="text-center" #cadastro="ngForm" (submit)="incluirMotorista()">
-      <div>
-        <label for="nome"> Código do Motorista: </label><br>
-        <input type="text" id="nome" name="nome" [(ngModel)]="nomemotorista.codigo" required> <br>
-        <label for="nome"> Nome do Motorista: </label><br>
-        <input type="text" id="nome" name="nome" [(ngModel)]="nomemotorista.nome" required> <br>
-        <label for="nome"> Numero da habilitação: </label><br>
-        <input type="text" id="nome" name="nome" [(ngModel)]="nomemotorista.hbt" required> <br>
 
-        <label for="concluida">Concluida:  </label>
+</div> -->
 
-        <input #checkMotorista type="checkbox" id="checkMotorista" [checked]="nomemotorista.concluida"
-          (change)="alterarAtributoConcluida(checkMotorista.checked)">
-      </div>
+<nb-layout>
 
-      <button type="submit" class="btn btn-primary">Incluir</button>
+  <!-- <nb-layout-header fixed>
+    Novo Motorista
+  </nb-layout-header> -->
 
-    </form>
-</div>
+  <nb-layout-column>
+
+    <nb-card accent="info">
+      <nb-card-body>
+        <form #cadastro="ngForm" (submit)="incluirMotorista()">
+          <div>
+            <label for="nome"> Código do Motorista: </label><br>
+            <input nbInput type="text" id="nome" name="nome" [(ngModel)]="nomemotorista.codigo" required> <br>
+            <label for="nome"> Nome do Motorista: </label><br>
+            <input nbInput type="text" id="nome" name="nome" [(ngModel)]="nomemotorista.nome" required> <br>
+            <label for="nome"> Numero da habilitação: </label><br>
+            <input nbInput type="text" id="nome" name="nome" [(ngModel)]="nomemotorista.hbt" required> <br>
+
+            <label for="concluida">Concluida:  </label><br>
+
+            <nb-checkbox #checkMotorista (checkedChange)="alterarAtributoConcluida(checkMotorista.checked)"  id="checkMotorista" >Toggle me</nb-checkbox>
+            <!-- <input nbInput #checkMotorista type="checkbox" id="checkMotorista" [checked]="nomemotorista.concluida"
+              (change)="alterarAtributoConcluida(checkMotorista.checked)"> -->
+          </div>
+<br>
+          <button type="submit" class="btn btn-primary">Incluir</button>
+
+        </form>
+      </nb-card-body>
+    </nb-card>
+
+  </nb-layout-column>
+
+</nb-layout>
 
 
 <!--

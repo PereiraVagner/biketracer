@@ -1,9 +1,6 @@
-.bg-img{
-  min-height: calc(100vh - 56px);
- width: 100%;
- background: url('../assets/Capabiketracer.jpg');
- -webkit-background-size: cover;
- -moz-background-size: cover;
- -o-background-size: cover;
- background-size: cover;
- }
+.left {
+  margin-left: auto;
+}
+.pointer {
+  cursor: pointer;
+}
