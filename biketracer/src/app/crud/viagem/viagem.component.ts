@@ -17,7 +17,7 @@ export class ViagemComponent implements OnInit {
 
   referenciaTabelaViagem: AngularFireList<Viagem> = null;
   motoristas: any;
-  m: Location;
+
   localizacao: Location;
 
   constructor(private banco: AngularFireDatabase, private router:Router) {
@@ -26,7 +26,7 @@ export class ViagemComponent implements OnInit {
 
   ngOnInit(): void {
     this.obterViagem();
-    this.m = new Location(null, null, null, null, null, null, null, null);
+    //this.m = new Location(null, null, null, null, null, null, null, null);
   }
 
   obterViagem():void
@@ -34,8 +34,9 @@ export class ViagemComponent implements OnInit {
     this.referenciaTabelaViagem.snapshotChanges().pipe(
       map(changes => changes.map(c => ({ key: c.payload, ... c.payload.val()}))))
             .subscribe(data => {
-              this.localizacao = data[data.length - 1];
-              console.log(this.localizacao);
+              console.log(data)
+             // this.localizacao = data[data.length - 1];
+              //console.log(this.location);
             })
   }
 

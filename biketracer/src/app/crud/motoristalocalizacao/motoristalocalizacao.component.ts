@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
 import { Motorista } from 'src/app/model/motorista';
-import { Router } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import { Viagem } from 'src/app/model/viagem';
 
 
@@ -21,12 +21,15 @@ export class MotoristalocalizacaoComponent implements OnInit {
   referenciaTabelaMotorista: AngularFireList<Motorista> = null;
   referenciaTabelaCadastrarMotorista:AngularFireList<Viagem> = null;
   zoom:number = 15;
-  localizacao: Viagem;
+  viagem: any;
+  localizacao: any;
+  id : String;
 
 
-    constructor(private banco:AngularFireDatabase, private router: Router) {
+    constructor(private banco:AngularFireDatabase, private router: ActivatedRoute) {
+    this.id = router.params["id"];
     this.referenciaTabelaMotorista = banco.list('/motorista');
-    this.referenciaTabelaCadastrarMotorista = banco.list('/viagem');
+    this.referenciaTabelaCadastrarMotorista = banco.list('/viagem/${this.id}');
    }
 
    ngOnInit():void{
@@ -38,8 +41,16 @@ export class MotoristalocalizacaoComponent implements OnInit {
       this.referenciaTabelaCadastrarMotorista.snapshotChanges().pipe(
       map(changes => changes.map(c => ({ key: c.payload, ... c.payload.val()}))))
             .subscribe(data => {
-              this.localizacao = data[data.length - 1];
-              console.log(this.localizacao.location);
+             this.viagem = data;
+             this.banco.list<Location>('/viagem/${this.id}/location').snapshotChanges()
+             .pipe(
+              map(chagain => chagain.map(d => ({ key: d.payload, ... d.payload.val()}))))
+                    .subscribe(lock => {
+                      this.localizacao = lock[lock.length - 1];
+                    })
+
+             //this.localizacao = data.[data.length - 1];
+              //console.log(this.localizacao.location.);
             })
 
 

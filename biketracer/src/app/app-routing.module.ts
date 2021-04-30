@@ -14,7 +14,7 @@ import { AppComponent } from './app.component';
 const routes: Routes = [
   {path: 'motoristalista', component:MotoristalistaComponent },
   {path: 'motoristacadastro', component:MotoristacadastroComponent},
-  {path: 'localizacao', component:MotoristalocalizacaoComponent},
+  {path: 'viagem', component:MotoristalocalizacaoComponent},
   {path: 'clientelista', component:ClienteComponent},
   {path: 'clientecadastro', component:ClienteComponent},
   {path: 'viagemlista', component:MotoristalistaComponent },
