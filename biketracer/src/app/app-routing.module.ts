@@ -18,7 +18,7 @@ const routes: Routes = [
   {path: 'clientelista', component:ClienteComponent},
   {path: 'clientecadastro', component:ClienteComponent},
   {path: 'viagemlista', component:MotoristalistaComponent },
-  {path: 'vaigemcadastro', component:MotoristacadastroComponent},
+  {path: 'viagemcadastro', component:MotoristacadastroComponent},
   // {path: 'motoristamain', component:MotoristaComponent},
   {path: 'home', redirectTo: '', pathMatch:'full'},
 

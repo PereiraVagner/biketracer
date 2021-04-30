@@ -8,10 +8,11 @@ import { MotoristalistaComponent } from './motoristalista/motoristalista.compone
 import { MotoristacadastroComponent } from './motoristacadastro/motoristacadastro.component';
 import { AgmCoreModule } from '@agm/core';
 import { NbCardModule, NbCheckboxModule, NbInputModule, NbLayoutModule } from '@nebular/theme';
+import { ViagemComponent } from './viagem/viagem.component';
 
 
 @NgModule({
-  declarations: [MotoristaComponent, ClienteComponent, MotoristalocalizacaoComponent, MotoristalistaComponent, MotoristacadastroComponent],
+  declarations: [MotoristaComponent, ClienteComponent, MotoristalocalizacaoComponent, MotoristalistaComponent, MotoristacadastroComponent, ViagemComponent],
   imports: [
     CommonModule, ReactiveFormsModule, FormsModule,
     AgmCoreModule.forRoot({
@@ -22,7 +23,7 @@ import { NbCardModule, NbCheckboxModule, NbInputModule, NbLayoutModule } from '@
     NbInputModule,
     NbCheckboxModule
   ],
-  exports: [MotoristaComponent, ClienteComponent, MotoristalocalizacaoComponent, MotoristacadastroComponent, MotoristalistaComponent]
+  exports: [MotoristaComponent, ClienteComponent, MotoristalocalizacaoComponent, MotoristacadastroComponent, MotoristalistaComponent, ViagemComponent]
 
 })
 export class CrudModule { }
