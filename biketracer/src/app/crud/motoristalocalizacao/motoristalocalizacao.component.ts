@@ -19,7 +19,7 @@ import { google } from '@google/maps';
 export class MotoristalocalizacaoComponent implements OnInit {
 
   referenciaTabelaMotorista: AngularFireList<Motorista> = null;
-  referenciaTabelaCadastrarMotorista:AngularFireList<Viagem> = null;
+  referenciaTabelaViagemMotorista:AngularFireList<Viagem> = null;
   zoom:number = 15;
   viagem: any;
   localizacao: any;
@@ -29,7 +29,7 @@ export class MotoristalocalizacaoComponent implements OnInit {
     constructor(private banco:AngularFireDatabase, private router: ActivatedRoute) {
     this.id = router.params["id"];
     this.referenciaTabelaMotorista = banco.list('/motorista');
-    this.referenciaTabelaCadastrarMotorista = banco.list('/viagem/${this.id}');
+    this.referenciaTabelaViagemMotorista = banco.list('/viagem/${this.id}');
    }
 
    ngOnInit():void{
@@ -38,7 +38,7 @@ export class MotoristalocalizacaoComponent implements OnInit {
 
    obterLocalizacao():void
    {
-      this.referenciaTabelaCadastrarMotorista.snapshotChanges().pipe(
+      this.referenciaTabelaViagemMotorista.snapshotChanges().pipe(
       map(changes => changes.map(c => ({ key: c.payload, ... c.payload.val()}))))
             .subscribe(data => {
              this.viagem = data;

@@ -15,29 +15,79 @@ import { map } from 'rxjs/operators';
 })
 export class ViagemComponent implements OnInit {
 
-  referenciaTabelaViagem: AngularFireList<Viagem> = null;
-  motoristas: any;
+  nome = null;
 
-  localizacao: Location;
+  referenciaTabelaViagem: AngularFireList<Viagem> = null;
+  viagens: any;
+  m: Viagem;
+  viagemExcluir: Viagem;
+  modoEdicao:boolean = false;
+  viagemEditar: Viagem;
+  campoDeBusca: string;
+  exibirBarra:boolean = false;
+
 
   constructor(private banco: AngularFireDatabase, private router:Router) {
-    this.referenciaTabelaViagem = banco.list('/viagem');
+    this.referenciaTabelaViagem = banco.list('/viagem');// ou ('/motoristacadastro');
    }
 
   ngOnInit(): void {
     this.obterViagem();
-    //this.m = new Location(null, null, null, null, null, null, null, null);
+    this.m = new Viagem(null, null, null, null, null, null, null);
+
+  }
+
+  incluirViagem():void
+  {
+    //let m = new Motorista(1, "Teste inserção", false);
+    this.banco.list('viagem').push(this.m)
+      .then((resultado:any) => {
+        console.log(resultado.key);
+      })
+  }
+
+  excluirViagem(viagemExcluir:Viagem)
+  {
+    this.banco.list('viagem').remove(viagemExcluir.key);
   }
 
   obterViagem():void
   {
     this.referenciaTabelaViagem.snapshotChanges().pipe(
       map(changes => changes.map(c => ({ key: c.payload, ... c.payload.val()}))))
-            .subscribe(data => {
-              console.log(data)
-             // this.localizacao = data[data.length - 1];
-              //console.log(this.location);
-            })
+        .subscribe(data => {
+          this.viagens = data;
+        });
   }
 
+  ativarModoEdicao(t1:Viagem)
+  {
+    this.modoEdicao = !this.modoEdicao;
+    this.viagemEditar = t1;
+  }
+
+  alterarAtributoConcluida(checado:boolean)
+  {
+    this.viagemEditar.status = checado;
+  }
+
+  alterarViagem()
+  {
+    this.banco.list('viagem').update(
+      this.viagemEditar.key, {nome: this.viagemEditar.motorista_id, codigo: this.viagemEditar.descricao
+       // hbt: this..hbt
+    });
+      this.modoEdicao = !this.modoEdicao;
+  }
+
+  buscarPorNome()
+  {
+    this.banco.list('viagem', ref => ref.orderByChild('nome').endAt(this.campoDeBusca + '\uf8ff')).valueChanges()
+    .subscribe(resultado => {this.viagens = resultado});
+
+  }
+  exibirBarraDeBusca()
+  {
+    this.exibirBarra = !this.exibirBarra;
+  }
 }
