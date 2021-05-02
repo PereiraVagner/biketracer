@@ -1,0 +1,32 @@
+<nb-layout>
+  <nb-layout-column>
+
+    <nb-card accent="info">
+      <nb-card-body>
+        <div style='display:flex;'>
+        <div style='flex: 1; margin-bottom: 10px;'>
+          <h1>Viagem x Motorista</h1>
+          <div style="display: block">
+            <canvas baseChart
+                    [data]="pieChartDataMot"
+                    [labels]="pieChartLabelsMot"
+                    [chartType]="pieChartTypeMot"></canvas>
+          </div>
+        </div>
+        <div style='flex: 1; margin-bottom: 10px;;'>
+          <div style="display: block">
+            <h1>Viagens por status</h1>
+            <canvas baseChart
+                    [data]="barChartDataStatus"
+                    [labels]="barChartLabelsStatus"
+                    [legend]="barChartLegend"
+                    [chartType]="barChartTypeStatus"></canvas>
+          </div>
+        </div>
+        </div>
+      </nb-card-body>
+    </nb-card>
+
+  </nb-layout-column>
+
+</nb-layout>

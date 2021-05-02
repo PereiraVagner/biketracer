@@ -1,28 +1,29 @@
+import { HomeComponent } from './home/home.component';
+import { ViagemlistaComponent } from './crud/viagemlista/viagemlista.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 
-import { MotoristaComponent } from './crud/motorista/motorista.component';
+
 import { ClienteComponent } from './crud/cliente/cliente.component';
-import { MotoristalocalizacaoComponent } from './crud/motoristalocalizacao/motoristalocalizacao.component';
 import { MotoristacadastroComponent } from './crud/motoristacadastro/motoristacadastro.component';
 import { MotoristalistaComponent } from './crud/motoristalista/motoristalista.component';
-import { Motorista } from './model/motorista';
-import { AppComponent } from './app.component';
+
+import { ViagemcadastroComponent } from './crud/viagemcadastro/viagemcadastro.component';
+import { ViagemdetalhesComponent } from './crud/viagemdetalhes/viagemdetalhes.component';
 
 
 const routes: Routes = [
   {path: 'motoristalista', component:MotoristalistaComponent },
   {path: 'motoristacadastro', component:MotoristacadastroComponent},
-  {path: 'localizacao', component:MotoristalocalizacaoComponent},
   {path: 'clientelista', component:ClienteComponent},
   {path: 'clientecadastro', component:ClienteComponent},
-  {path: 'viagemlista', component:MotoristalistaComponent },
-  {path: 'vaigemcadastro', component:MotoristacadastroComponent},
-  // {path: 'motoristamain', component:MotoristaComponent},
-  {path: 'home', redirectTo: '', pathMatch:'full'},
+  {path: 'viagemlista', component:ViagemlistaComponent },
+  {path: 'vaigemcadastro', component:ViagemcadastroComponent},
+  {path: 'viagemdetalhes/:id', component:ViagemdetalhesComponent},
+  {path: 'home',component:HomeComponent},
 
-  {path: '', redirectTo: '', pathMatch:'full'}
+  {path: '', redirectTo: 'home', pathMatch:'full'}
 ];
 
 

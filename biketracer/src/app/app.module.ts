@@ -1,3 +1,4 @@
+import { HomeModule } from './home/home.module';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -12,11 +13,8 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { FormsModule } from '@angular/forms';
-import { NgxBootstrapIconsModule} from 'ngx-bootstrap-icons';
 import { NbThemeModule, NbLayoutModule, NbSidebarModule, NbSidebarService, NbIconModule, NbActionsModule, NbSearchModule, NbContextMenuModule, NbMenuService, NbMenuModule } from '@nebular/theme';
-
-
-
+import { ChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -29,12 +27,14 @@ import { NbThemeModule, NbLayoutModule, NbSidebarModule, NbSidebarService, NbIco
     NgbModule, AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule, FormsModule,
     CrudModule,
+    HomeModule,
     NbLayoutModule,
     NbMenuModule.forRoot(),
     NbThemeModule.forRoot({ name: 'dark' }),
     NbIconModule,
     NbActionsModule,
     NbContextMenuModule,
+    ChartsModule
   ],
   providers: [NbSidebarService],
   bootstrap: [AppComponent]

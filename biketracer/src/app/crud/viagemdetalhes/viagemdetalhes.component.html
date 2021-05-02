@@ -1,0 +1,47 @@
+<div class="container-fluid">
+
+  <div class='flex-pai w-100' *ngIf="viagem">
+    <div class='flex-filho-coluna'>
+      <h4>Latitude</h4>
+      <p>
+        {{viagem.lat}}
+      </p>
+      <h4>Longitude</h4>
+      <p>
+        {{viagem.long}}
+      </p>
+      <p>
+        Viagem teve ínicio as <b>10:00</b> horas, na data <b>04/04/2021</b>
+      </p>
+      <h4>Cliente</h4>
+      <p>
+        {{clienteAtual}}
+      </p>
+      <h4>Motorista</h4>
+      <p>
+        {{motoristaAtual}}
+      </p>
+      <h4>Viagem Com problemas</h4>
+      <p>
+        {{viagem.alerta ? 'Sim' : 'Não'}}
+      </p>
+      <h4>Viagem Concluída</h4>
+      <p>
+        {{viagem.concluida ? 'Sim' : 'Não'}}
+      </p>
+    </div>
+    <div class='flex-filho-linha w-100'>
+        <agm-map
+          class="mapa"
+          [latitude]="viagem.lat"
+          [zoom]="zoom"
+          [longitude]="viagem.long"
+        >
+          <agm-marker
+            [latitude]="viagem.lat"
+            [longitude]="viagem.long"
+          ></agm-marker>
+        </agm-map>
+    </div>
+</div>
+

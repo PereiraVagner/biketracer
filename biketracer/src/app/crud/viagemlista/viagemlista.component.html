@@ -1,0 +1,68 @@
+<div class="container-fluid">
+  <h3>Viagens <a href="../motoristacadastro" class="btn btn-success btn-sm active" role="button" aria-pressed="true" style='text-decoration: none;'>+</a></h3>
+
+  <button class="btn btn-xs btn-info"  (click)="exibirBarraDeBusca()">Pesquisar</button>
+  <form #busca="ngForm">
+    <div *ngIf="exibirBarra==true">
+      <label>Busca por nome:</label>
+      <input type="text" id="campoDeBusca" name="campoDeBusca" [(ngModel)]="campoDeBusca" (keyup)="buscarPorNome()">
+    </div>
+  </form>
+  <br>
+
+
+  <table class="table table-striped table-dark table-bordered table-hover">
+    <thead>
+      <tr>
+        <th scope="col" class="text-center">Descricao</th>
+        <th scope="col" class="text-center">Cliente</th>
+        <th scope="col" class="text-center">Motorista</th>
+        <th scope="col" class="text-center">Alerta</th>
+        <th scope="col" class="text-center">Concluída</th>
+        <th scope="col" class="text-center">Acoes</th>
+      </tr>
+    </thead>
+      <tbody>
+        <tr *ngFor="let viagemlista of viagens">
+          <td>{{viagemlista.descricao}}</td>
+            <td>{{viagemlista.nome_cliente}}</td>
+              <td>{{viagemlista.nome_motorista}}</td>
+
+
+            <div *ngIf="modoEdicao==true && viagemlista.key==motoristaEditar.key">
+              <form  #edicao="ngForm" (submit)="alterarMotorista()">
+                <div>
+                  <label for="nome">Código ID do Motorista: </label><br>
+                  <input type="text" id="codigoEditar" name="codigoEditar" [(ngModel)]="motoristaEditar.codigo" required> <br>
+                  <label for="nome">Nome do Motorista: </label><br>
+                  <input type="text" id="nomeEditar" name="nomeEditar" [(ngModel)]="motoristaEditar.nome" required> <br>
+                  <label for="nome">Numero Habilitação: </label><br>
+                  <input type="text" id="habilitacaoEditar" name="habilitacaoEditar" [(ngModel)]="motoristaEditar.hbt" required> <br>
+                  <br>
+
+                  <!-- <label for="concluida">Disponível:</label>
+                  <input #checkMotoristaEditar type="checkbox" id="checkMotoristaEditar" [checked]="motoristaEditar.concluida"
+                    (change)="alterarAtributoConcluida(checkMotoristaEditar.checked)"> -->
+                  </div>
+
+                  <button type="submit" class="btn btn-primary">Editar</button>
+
+
+              </form>
+
+            </div>
+
+          <td class="text-center"> <input type="checkbox" [checked]="viagemlista.alerta"> </td>
+          <td class="text-center"> <input type="checkbox" [checked]="viagemlista.concluida"> </td>
+          <td class="text-center">
+            <button title="Editar" class="btn btn-xs btn-info" (click)="ativarModoEdicao(viagemlista)" >Editar</button>
+            <button title="Excluir" class="btn btn-xs btn-danger" (click)="excluirMotorista(viagemlista)" >Excluir</button>
+            <button title="Detalhes" class="btn btn-xs btn-warning" (click)="VerDetalhes(viagemlista)" >Detalhes</button>
+          </td>
+        </tr>
+        <div class="alert alert-primary" *ngIf="viagens && viagens.length == 0">
+          Nehuma tarefa cadastrada!
+        </div>
+      </tbody>
+  </table>
+</div>
