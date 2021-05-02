@@ -40,7 +40,7 @@ itemsViagens = [
   },
   {
     title: 'Ver Viagens',
-    link: '/viagem'
+    link: '/viagemlista'
   },
 ];
 

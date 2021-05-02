@@ -11,7 +11,12 @@
         {{ localizacao.long }}</span
       >
 
-      <h2>Local</h2>
+      <h2>Detalhes da Viagems</h2>
+      <tbody>
+        <tr *ngFor="let viagemLista of viagens">
+          <button title="Editar" class="btn btn-xs btn-danger" (click)="enviarAlerta(viagemLista)" >Alerta</button>
+        </tr>
+      </tbody>
       <p>
         Viagem teve ínicio:
         <br />

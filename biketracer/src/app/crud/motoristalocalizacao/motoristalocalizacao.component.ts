@@ -24,6 +24,7 @@ export class MotoristalocalizacaoComponent implements OnInit {
   viagem: any;
   localizacao: any;
   id : String;
+  viagens:any;
 
 
     constructor(private banco:AngularFireDatabase, private router: ActivatedRoute) {
@@ -34,6 +35,7 @@ export class MotoristalocalizacaoComponent implements OnInit {
 
    ngOnInit():void{
     this.obterLocalizacao();
+    this.enviarAlerta();
    }
 
    obterLocalizacao():void
@@ -52,8 +54,15 @@ export class MotoristalocalizacaoComponent implements OnInit {
              //this.localizacao = data.[data.length - 1];
               //console.log(this.localizacao.location.);
             })
+  }
+      enviarAlerta():void
+      {
+        this.referenciaTabelaViagemMotorista.snapshotChanges().pipe(
+          map(changes => changes.map(a => ({ key: a.payload, ... a.payload.val()}))))
+            .subscribe(data => {
+              this.viagens = data ;
+              });
+      }
 
-
-    }
 
  }

@@ -25,6 +25,7 @@ export class ViagemComponent implements OnInit {
   viagemEditar: Viagem;
   campoDeBusca: string;
   exibirBarra:boolean = false;
+  alerta: Viagem;
 
 
   constructor(private banco: AngularFireDatabase, private router:Router) {

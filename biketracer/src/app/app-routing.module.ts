@@ -14,10 +14,10 @@ const routes: Routes = [
   {path: 'motoristalista', component:MotoristalistaComponent },
   {path: 'motoristacadastro', component:MotoristacadastroComponent},
   {path: 'viagem', component:MotoristalocalizacaoComponent},
-  {path: 'clientelista', component:ClienteComponent},
-  {path: 'clientecadastro', component:ClienteComponent},
+  //{path: 'clientelista', component:ClienteComponent},
+  //{path: 'clientecadastro', component:ClienteComponent},
   {path: 'viagemlista', component:ViagemComponent },
-  {path: 'viagemcadastro', component:MotoristacadastroComponent},
+  //{path: 'viagemcadastro', component:MotoristacadastroComponent},
   // {path: 'motoristamain', component:MotoristaComponent},
   {path: 'home', redirectTo: '', pathMatch:'full'},
 
