@@ -10,7 +10,6 @@ import { MotoristalistaComponent } from './motoristalista/motoristalista.compone
 import { MotoristacadastroComponent } from './motoristacadastro/motoristacadastro.component';
 import { AgmCoreModule } from '@agm/core';
 import { NbCardModule, NbCheckboxModule, NbInputModule, NbLayoutModule } from '@nebular/theme';
-import { ViagemComponent } from './viagem/viagem.component';
 
 
 @NgModule({

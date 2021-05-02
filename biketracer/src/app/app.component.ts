@@ -36,7 +36,7 @@ itemsClientes = [
 itemsViagens = [
   {
     title: 'Nova',
-    link: '/viagem'
+    link: '/viagemcadastro'
   },
   {
     title: 'Ver Viagens',

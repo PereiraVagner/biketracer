@@ -19,7 +19,7 @@ const routes: Routes = [
   {path: 'clientelista', component:ClienteComponent},
   {path: 'clientecadastro', component:ClienteComponent},
   {path: 'viagemlista', component:ViagemlistaComponent },
-  {path: 'vaigemcadastro', component:ViagemcadastroComponent},
+  {path: 'viagemcadastro', component:ViagemcadastroComponent},
   {path: 'viagemdetalhes/:id', component:ViagemdetalhesComponent},
   {path: 'home',component:HomeComponent},
 
