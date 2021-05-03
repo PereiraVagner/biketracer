@@ -43,7 +43,8 @@ export class ViagemdetalhesComponent implements OnInit {
             res[5],
             res[6],
             res[2],
-            res[1]
+            res[1],
+            res[3]
           );
           this.banco.list('cliente', ref => ref.child(this.viagem.cliente_id)).valueChanges()
           .subscribe((cli_res: any) => {

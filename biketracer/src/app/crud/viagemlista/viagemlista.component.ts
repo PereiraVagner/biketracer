@@ -34,7 +34,7 @@ export class ViagemlistaComponent implements OnInit {
 
   ngOnInit(): void {
     this.obterViagens();
-    this.v = new Viagem(null, null, null, null, null,null,null,null);
+    this.v = new Viagem(null, null, null, null, null,null,null,null, null);
 
   }
 
@@ -85,7 +85,7 @@ export class ViagemlistaComponent implements OnInit {
 
   alterarMotorista()
   {
-    this.banco.list('vaigem').update(
+    this.banco.list('viagem').update(
 
       this.viagemeditar.key, {descricao: this.viagemeditar.descricao, motorista_id:this.viagemeditar.motorista_id, cliente_id:this.viagemeditar.cliente_id, lat: this.viagemeditar.lat, long:this.viagemeditar.long, concluida:this.viagemeditar.concluida, alerta:this.viagemeditar.alerta});
       this.modoEdicao = !this.modoEdicao;

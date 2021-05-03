@@ -1,9 +1,48 @@
 
-<!-- <nb-layout>
+<nb-layout>
+  <nb-layout-column>
+    <h3>Cadastro de Viagem</h3>
+    <nb-card accent="info">
+      <nb-card-body>
+        <form #cadastro="ngForm" (submit)="incluirViagem()">
+          <div>
+            <label for="nome">Motorista ID: </label><br>
+            <input nbInput type="text" id="nome" name="nome" [(ngModel)]="v.motorista_id" required> <br>
+            <label for="nome">Cliente ID: </label><br>
+            <input nbInput type="text" id="nome" name="nome" [(ngModel)]="v.cliente_id" required> <br>
+            <label for="nome"> Descrição: </label><br>
+            <input nbInput type="text" id="nome" name="nome" [(ngModel)]="v.descricao" required ><br>
+            <label for="nome"> Data: </label><br>
+            <input nbInput type="text" id="nome" name="nome" [(ngModel)]="v.data" required placeholder="00/00/00"> <br>
+            <br>
 
-</nb-layout> -->
+           <label for="concluida">Concluida:  </label><br>
+
+            <nb-checkbox #viagemconcluida (checkedChange)="alterarAtributoConcluida(v.concluida)" id="viagemconcluida" ></nb-checkbox>
+           <!-- <input nbInput #viagemconcluida type="checkbox" id="viagemconcluida" [checked]="viagemconcluida.concluida"
+            (change)="alterarAtributoConcluida(vi gemconcluida.checked)"> -->
+            <br>
 
 
+              <label for="concluida">Alerta:  </label><br>
+
+            <nb-checkbox #alertaViagem (checkedChange)="alterarAtributoConcluida(alertaViagem.alerta)"  id="alertaViagem" ></nb-checkbox>
+            <input nbInput #alertaViagem type="checkbox" id="alertaViagem" [checked]="alertaViagem.alerta"
+              (change)="alterarAtributoConcluida(alertaViagem.checked)"><br>
+
+              <br>
+            </div>
+          <button type="submit" class="btn btn-primary">Incluir</button>
+
+        </form>
+      </nb-card-body>
+    </nb-card>
+
+  </nb-layout-column>
+
+</nb-layout>
+
+<!--
 <div class="container-fluid">
   <button (click)="exibirBarraDeBusca()">Pesquisar</button>
   <form #busca="ngForm">
@@ -21,8 +60,8 @@
       <tr>
         <th scope="col" class="text-center">Motorista ID</th>
         <th scope="col" class="text-center">Descrição</th>
-        <th scope="col" class="text-center">Teste</th>
         <th scope="col" class="text-center">Status</th>
+        <th scope="col" class="text-center">Cliente ID</th>
         <th scope="col" class="text-center"> <a href="../viagemcadasto" class="btn btn-success btn-sm active" role="button" aria-pressed="true">Novo</a>
         </th>
       </tr>
@@ -31,7 +70,8 @@
         <tr *ngFor="let viagemlista of viagens">
           <td>{{viagemlista.motorista_id}}
             <td>{{viagemlista.descricao}}
-              <td>{{viagemlista.status}}
+              <td>{{viagemlista.concluida}}
+                <td>{{viagemlista.cliente_id}}
 
 
             <div *ngIf="modoEdicao==true && viagemlista.key==viagemEditar.key">
@@ -42,10 +82,12 @@
                   <label for="nome">Descrição da Viagem: </label><br>
                   <input type="text" id="descricaoEditar" name="descricaoEditar" [(ngModel)]="viagemEditar.descricao" required> <br>
                   <label for="nome">Status: </label><br>
-                  <input type="text" id="statusEditar" name="statusEditar" [(ngModel)]="viagemEditar.status" required> <br>
+                  <input type="text" id="statusEditar" name="statusEditar" [(ngModel)]="viagemEditar.concluida" required> <br>
+                  <label for="nome">Código ID do Cliente: </label><br>
+                  <input type="text" id="codigoEditar" name="codigoEditar" [(ngModel)]="viagemEditar.motorista_id" required> <br>
                   <br>
 
-                  <label for="concluida">Disponível:</label>
+                 <!-- <label for="concluida">Disponível:</label>
                   <input #checkViagemEditar type="checkbox" id="checkViagemEditar" [checked]="viagemEditar.status"
                     (change)="alterarAtributoConcluida(checkViagemEditar.checked)">
                   </div>
@@ -70,4 +112,4 @@
       </tbody>
   </table>
 </div>
-
+-->

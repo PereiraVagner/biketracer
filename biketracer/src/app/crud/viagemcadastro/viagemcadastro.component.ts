@@ -15,7 +15,7 @@ export class ViagemcadastroComponent implements OnInit {
 
   referenciaTabelaViagem: AngularFireList<Viagem> = null;
   viagens: any;
-  m: Viagem;
+  v: Viagem;
   viagemExcluir: Viagem;
   modoEdicao:boolean = false;
   viagemEditar: Viagem;
@@ -30,17 +30,30 @@ export class ViagemcadastroComponent implements OnInit {
 
   ngOnInit(): void {
     this.obterViagem();
-    this.m = new Viagem(null, null, null, null, null, null, null, null);
+    this.v = new Viagem(null, null, null, null, null, null, null, null, null);
 
   }
 
   incluirViagem():void
   {
     //let m = new Motorista(1, "Teste inserção", false);
-    this.banco.list('viagem').push(this.m)
-      .then((resultado:any) => {
-        console.log(resultado.key);
-      })
+    this.banco.list('cliente').valueChanges()
+      .subscribe((cli_res:any) => {
+        cli_res.forEach( r =>{
+          console.log(r)
+        })
+      });
+        this.banco.list('motorista').valueChanges()
+          .subscribe((mot_res:any) => {
+            mot_res.forEach( m => {
+
+            })
+          });
+          this.banco.list('viagem').push(this.v)
+            .then((resultado:any) => {
+              console.log(resultado.key);
+            })
+            this.router.navigate(['/viagemlista']);
   }
 
   excluirViagem(viagemExcluir:Viagem)
@@ -63,15 +76,19 @@ export class ViagemcadastroComponent implements OnInit {
     this.viagemEditar = t1;
   }
 
-  alterarAtributoConcluida(checado:boolean)
+
+  alterarAtributoConcluida(checked:boolean)
   {
-    this.viagemEditar.concluida = checado;
+    this.viagemEditar.concluida = checked;
+    this.viagemEditar.alerta = checked;
   }
+
 
   alterarViagem()
   {
     this.banco.list('viagem').update(
-      this.viagemEditar.key, {nome: this.viagemEditar.motorista_id, codigo: this.viagemEditar.descricao
+      this.viagemEditar.key, {nome: this.viagemEditar.motorista_id, codigo: this.viagemEditar.descricao,
+        clientID: this.viagemEditar.cliente_id, concluida: this.viagemEditar.concluida
        // hbt: this..hbt
     });
       this.modoEdicao = !this.modoEdicao;
