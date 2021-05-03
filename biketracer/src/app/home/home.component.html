@@ -1,32 +1,57 @@
-<nb-layout>
-  <nb-layout-column>
-
-    <nb-card accent="info">
-      <nb-card-body>
-        <div style='display:flex;'>
-        <div style='flex: 1; margin-bottom: 10px;'>
-          <h1>Viagem x Motorista</h1>
-          <div style="display: block">
-            <canvas baseChart
-                    [data]="pieChartDataMot"
-                    [labels]="pieChartLabelsMot"
-                    [chartType]="pieChartTypeMot"></canvas>
+    <div style='display:flex; height:100%; flex-direction: column;'>
+    <div style='display:flex; flex:0.3'>
+      <div style="flex:1">
+        <nb-card  *ngIf="totalClientes" status="danger" class='cockpit' style='flex: 1; margin-bottom: 10px;'>
+          <nb-card-header>Clientes</nb-card-header>
+          <nb-card-body>
+            {{totalClientes}}
+          </nb-card-body>
+        </nb-card>
+      </div>
+      <div style="flex:1">
+        <nb-card *ngIf="totalMotoristas" status="warning" class='cockpit' style='flex: 1; margin-bottom: 10px;'>
+          <nb-card-header>Motoristas</nb-card-header>
+          <nb-card-body>
+            {{totalMotoristas}}
+          </nb-card-body>
+        </nb-card>
+      </div>
+      <div style="flex:1">
+        <nb-card *ngIf="viagens"  status="success" class='cockpit' style='flex: 1; margin-bottom: 10px;'>
+          <nb-card-header>Viagens</nb-card-header>
+          <nb-card-body>
+            {{viagens.length}}
+          </nb-card-body>
+        </nb-card>
+      </div>
+    </div>
+    <div style='display:flex; flex:0.7'>
+      <nb-card accent="info" style='flex: 1; margin-bottom: 10px;'>
+        <nb-card-header>Viagem x Motorista</nb-card-header>
+        <nb-card-body>
+            <div style="display: block; height: 100%;">
+              <canvas baseChart
+                      [data]="pieChartDataMot"
+                      [labels]="pieChartLabelsMot"
+                      [chartType]="pieChartTypeMot"
+                      [options]="options"
+                      [colors]="colors"></canvas>
           </div>
-        </div>
-        <div style='flex: 1; margin-bottom: 10px;;'>
-          <div style="display: block">
-            <h1>Viagens por status</h1>
-            <canvas baseChart
-                    [data]="barChartDataStatus"
-                    [labels]="barChartLabelsStatus"
-                    [legend]="barChartLegend"
-                    [chartType]="barChartTypeStatus"></canvas>
-          </div>
-        </div>
-        </div>
-      </nb-card-body>
-    </nb-card>
-
-  </nb-layout-column>
-
-</nb-layout>
+        </nb-card-body>
+      </nb-card>
+      <nb-card accent="info" style='flex: 1; margin-bottom: 10px;'>
+        <nb-card-header>Viagens por status</nb-card-header>
+        <nb-card-body>
+            <div style="display: block">
+              <canvas baseChart
+                      [data]="barChartDataStatus"
+                      [labels]="barChartLabelsStatus"
+                      [legend]="barChartLegend"
+                      [colors]="colors"
+                      [options]="options"
+                      [chartType]="barChartTypeStatus"></canvas>
+            </div>
+        </nb-card-body>
+      </nb-card>
+    </div>
+  </div>

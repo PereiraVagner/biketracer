@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/database';
+import { ChartOptions } from 'chart.js';
 import { map } from 'rxjs/operators';
 import { Motorista } from '../model/motorista';
 import { Viagem } from '../model/viagem';
@@ -7,17 +8,40 @@ import { Viagem } from '../model/viagem';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
 
   viagens: any;
   motoristas : any = {};
   status : any = {};
+  totalMotoristas: number;
+  totalClientes: number;
 
   public pieChartLabelsMot = [];
   public pieChartDataMot = [];
   public pieChartTypeMot = 'pie';
+  public colors = [{
+    backgroundColor:[
+      'rgba(255, 0, 0, 0.5)',
+      'rgba(0, 255, 0, 0.5)',
+      'rgba(0, 0, 255, 0.5)',
+      'rgba(255, 255, 0, 0.5)',
+      'rgba(255, 0, 255, 0.5)',
+      'rgba(255, 255, 255, 0.5)'
+    ]
+  }];
+  public options: ChartOptions = {
+    scales : {
+      yAxes: [{
+          ticks: {
+            beginAtZero: true
+          }
+      }]
+    }
+    // responsive: true,
+    // maintainAspectRatio: false,
+  }
 
   public barChartLabelsStatus = [];
   public barChartDataStatus = [];
@@ -28,6 +52,14 @@ export class HomeComponent implements OnInit {
     this.banco.list<Motorista>('/viagem').snapshotChanges().pipe(
       map(changes => changes.map(c => ({ key: c.payload, ... c.payload.val()}))))
         .subscribe(data => {
+
+          this.pieChartLabelsMot = [];
+          this.pieChartDataMot = [];
+          this.barChartLabelsStatus = [];
+          this.barChartDataStatus = [];
+          this.motoristas = {};
+          this.status = {};
+
           this.viagens = data;
           this.viagens.forEach((vgm: any) => {
 
@@ -69,8 +101,17 @@ export class HomeComponent implements OnInit {
                 this.barChartDataStatus.push(this.status[key]);
           });
         });
+
   }
   ngOnInit() {
+      this.banco.list('cliente').valueChanges()
+      .subscribe((cli_res) => {
+        this.totalClientes = cli_res.length;
+      });
+      this.banco.list('motorista').valueChanges()
+      .subscribe((mot_res) => {
+        this.totalMotoristas = mot_res.length;
+      });
   }
 
 }

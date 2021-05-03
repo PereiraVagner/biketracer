@@ -8,7 +8,7 @@ import { Router } from "@angular/router";
 @Component({
   selector: 'app-motorista',
   templateUrl: './motorista.component.html',
-  styleUrls: ['./motorista.component.css']
+  styleUrls: ['./motorista.component.scss']
 })
 export class MotoristaComponent implements OnInit {
 

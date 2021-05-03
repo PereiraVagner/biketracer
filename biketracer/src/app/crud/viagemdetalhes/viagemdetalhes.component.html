@@ -25,9 +25,16 @@
       <p>
         {{viagem.alerta ? 'Sim' : 'Não'}}
       </p>
+      <p>
+        <button *ngIf="!viagem.alerta"  class="btn btn-xs btn-danger"  (click)="informarProblema()">Emitir Alerta</button>
+        <button *ngIf="viagem.alerta"  class="btn btn-xs btn-info"  (click)="informarProblema(true)">Remover Alerta</button>
+      </p>
       <h4>Viagem Concluída</h4>
       <p>
         {{viagem.concluida ? 'Sim' : 'Não'}}
+      </p>
+      <p>
+        <button *ngIf="!viagem.concluida"  class="btn btn-xs btn-info"  (click)="concluirViagem(true)">Encerrar Viagem</button>
       </p>
     </div>
     <div class='flex-filho-linha w-100'>

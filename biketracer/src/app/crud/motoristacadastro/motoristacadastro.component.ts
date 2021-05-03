@@ -6,7 +6,7 @@ import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
 @Component({
   selector: 'app-motoristacadastro',
   templateUrl: './motoristacadastro.component.html',
-  styleUrls: ['./motoristacadastro.component.css']
+  styleUrls: ['./motoristacadastro.component.scss']
 })
 export class MotoristacadastroComponent implements OnInit {
 

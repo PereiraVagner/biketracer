@@ -9,7 +9,7 @@ import { Router } from "@angular/router";
 @Component({
   selector: 'app-motoristalista',
   templateUrl: './motoristalista.component.html',
-  styleUrls: ['./motoristalista.component.css']
+  styleUrls: ['./motoristalista.component.scss']
 })
 export class MotoristalistaComponent implements OnInit {
 

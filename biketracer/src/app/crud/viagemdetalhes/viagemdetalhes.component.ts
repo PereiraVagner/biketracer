@@ -14,7 +14,7 @@ import { Cliente } from 'src/app/model/cliente';
 @Component({
   selector: 'app-viagemdetalhes',
   templateUrl: './viagemdetalhes.component.html',
-  styleUrls: ['./viagemdetalhes.component.css']
+  styleUrls: ['./viagemdetalhes.component.scss']
 })
 export class ViagemdetalhesComponent implements OnInit {
 
@@ -31,7 +31,6 @@ export class ViagemdetalhesComponent implements OnInit {
     constructor(private banco:AngularFireDatabase, private route: ActivatedRoute) {
       this.referenciaTabelaMotorista = banco.list('/motorista');
       this.referenciaTabelaCliente = banco.list('/cliente');
-      console.log(this.route.snapshot.paramMap.get('id'));
       this.banco.list('viagem', ref => ref.child(this.route.snapshot.paramMap.get('id'))).valueChanges()
         .subscribe((res: any) => {
           console.log(res)
@@ -43,7 +42,8 @@ export class ViagemdetalhesComponent implements OnInit {
             res[5],
             res[6],
             res[2],
-            res[1]
+            res[0],
+            res[3]
           );
           this.banco.list('cliente', ref => ref.child(this.viagem.cliente_id)).valueChanges()
           .subscribe((cli_res: any) => {
@@ -60,5 +60,17 @@ export class ViagemdetalhesComponent implements OnInit {
    ngOnInit():void{
 
    }
+
+   informarProblema( liberar: boolean){
+      this.banco.list(`viagem`).update(this.route.snapshot.paramMap.get('id'), {
+        alerta: liberar ? false : true
+      });
+   }
+
+   concluirViagem( liberar: boolean){
+    this.banco.list(`viagem`).update(this.route.snapshot.paramMap.get('id'), {
+      concluida: true
+    });
+ }
 
  }

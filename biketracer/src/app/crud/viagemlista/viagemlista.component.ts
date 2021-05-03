@@ -8,7 +8,7 @@ import { Viagem } from 'src/app/model/viagem';
 @Component({
   selector: 'app-viagemlista',
   templateUrl: './viagemlista.component.html',
-  styleUrls: ['./viagemlista.component.css']
+  styleUrls: ['./viagemlista.component.scss']
 })
 export class ViagemlistaComponent implements OnInit {
 
@@ -34,7 +34,7 @@ export class ViagemlistaComponent implements OnInit {
 
   ngOnInit(): void {
     this.obterViagens();
-    this.v = new Viagem(null, null, null, null, null,null,null,null);
+    this.v = new Viagem(null, null, null, null, null,null,null,null, null);
 
   }
 
