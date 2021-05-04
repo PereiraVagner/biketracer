@@ -29,7 +29,7 @@ export class MotoristacadastroComponent implements OnInit {
 
     alterarAtributoConcluida(checked:boolean)
     {
-      this.nomemotorista.concluida = checked;
+      this.nomemotorista.ativo = checked;
     }
 
   }

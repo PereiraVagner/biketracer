@@ -1,3 +1,4 @@
+import { ClientecadastroComponent } from './crud/clientecadastro/clientecadastro.component';
 import { HomeComponent } from './home/home.component';
 import { ViagemlistaComponent } from './crud/viagemlista/viagemlista.component';
 import { NgModule } from '@angular/core';
@@ -17,7 +18,7 @@ const routes: Routes = [
   {path: 'motoristalista', component:MotoristalistaComponent },
   {path: 'motoristacadastro', component:MotoristacadastroComponent},
   {path: 'clientelista', component:ClienteComponent},
-  {path: 'clientecadastro', component:ClienteComponent},
+  {path: 'clientecadastro', component:ClientecadastroComponent},
   {path: 'viagemlista', component:ViagemlistaComponent },
   {path: 'viagemcadastro', component:ViagemcadastroComponent},
   {path: 'viagemdetalhes/:id', component:ViagemdetalhesComponent},

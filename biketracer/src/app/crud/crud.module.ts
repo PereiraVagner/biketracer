@@ -1,3 +1,4 @@
+import { ClientecadastroComponent } from './clientecadastro/clientecadastro.component';
 import { ViagemdetalhesComponent } from './viagemdetalhes/viagemdetalhes.component';
 import { ViagemcadastroComponent } from './viagemcadastro/viagemcadastro.component';
 import { ViagemlistaComponent } from './viagemlista/viagemlista.component';
@@ -9,11 +10,11 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { MotoristalistaComponent } from './motoristalista/motoristalista.component';
 import { MotoristacadastroComponent } from './motoristacadastro/motoristacadastro.component';
 import { AgmCoreModule } from '@agm/core';
-import { NbCardModule, NbCheckboxModule, NbInputModule, NbLayoutModule } from '@nebular/theme';
+import { NbCardModule, NbCheckboxModule, NbInputModule, NbLayoutModule, NbSelectModule } from '@nebular/theme';
 
 
 @NgModule({
-  declarations: [MotoristaComponent, ClienteComponent, MotoristalistaComponent, MotoristacadastroComponent, ViagemlistaComponent, ViagemcadastroComponent, ViagemdetalhesComponent],
+  declarations: [MotoristaComponent, ClienteComponent, ClientecadastroComponent, MotoristalistaComponent, MotoristacadastroComponent, ViagemlistaComponent, ViagemcadastroComponent, ViagemdetalhesComponent],
   imports: [
     CommonModule, ReactiveFormsModule, FormsModule,
     AgmCoreModule.forRoot({
@@ -22,9 +23,10 @@ import { NbCardModule, NbCheckboxModule, NbInputModule, NbLayoutModule } from '@
     NbLayoutModule,
     NbCardModule,
     NbInputModule,
-    NbCheckboxModule
+    NbCheckboxModule,
+    NbSelectModule
   ],
-  exports: [MotoristaComponent, ClienteComponent, MotoristacadastroComponent, MotoristalistaComponent, ViagemlistaComponent, ViagemcadastroComponent, ViagemdetalhesComponent]
+  exports: [MotoristaComponent, ClienteComponent, ClientecadastroComponent, MotoristacadastroComponent, MotoristalistaComponent, ViagemlistaComponent, ViagemcadastroComponent, ViagemdetalhesComponent]
 
 })
 export class CrudModule { }

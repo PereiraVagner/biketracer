@@ -11,15 +11,14 @@
       <nb-card-body>
         <form #cadastro="ngForm" (submit)="incluirMotorista()">
           <div>
-            <label for="nome"> Código do Motorista: </label><br>
-            <input nbInput type="text" id="nome" name="nome" [(ngModel)]="nomemotorista.codigo" required> <br>
-            <label for="nome"> Nome do Motorista: </label><br>
-            <input nbInput type="text" id="nome" name="nome" [(ngModel)]="nomemotorista.nome" required> <br>
-            <label for="nome"> Numero da habilitação: </label><br>
-            <input nbInput type="text" id="nome" name="nome" [(ngModel)]="nomemotorista.hbt" required> <br>
-<br>
+            <label for="nome"> Nome do Cliente: </label><br>
+            <input nbInput type="text" id="nome" name="nome" [(ngModel)]="cliente.nome" required> <br>
+            <label for="idade"> Idade: </label><br>
+            <input nbInput type="text" id="idade" name="idade" [(ngModel)]="cliente.idade" required> <br>
 
-            <nb-checkbox #checkMotorista (checkedChange)="alterarAtributoConcluida(checkMotorista.checked)"  id="checkMotorista" >Ativo</nb-checkbox>
+            <!-- <label for="concluida">Concluida:  </label><br> -->
+
+            <!-- <nb-checkbox #checkMotorista (checkedChange)="alterarAtributoConcluida(checkMotorista.checked)"  id="checkMotorista" >Verificar</nb-checkbox> -->
             <!-- <input nbInput #checkMotorista type="checkbox" id="checkMotorista" [checked]="nomemotorista.concluida"
               (change)="alterarAtributoConcluida(checkMotorista.checked)"> -->
           </div>

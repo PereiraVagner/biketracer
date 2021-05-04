@@ -66,7 +66,7 @@ export class MotoristalistaComponent implements OnInit {
 
   alterarAtributoConcluida(checado:boolean)
   {
-    this.motoristaEditar.concluida = checado;
+    this.motoristaEditar.ativo = checado;
   }
 
   alterarMotorista()

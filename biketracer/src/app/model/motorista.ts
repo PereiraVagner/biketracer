@@ -1,6 +1,6 @@
 export class Motorista  {
 
-  constructor ( public key: string, public nome: string, public codigo:string, public hbt:string, public concluida: boolean){}
+  constructor ( public key: string, public nome: string, public codigo:string, public hbt:string, public ativo: boolean){}
 }
 
 export class Localizacao  {

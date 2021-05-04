@@ -1,5 +1,5 @@
 <div class="container-fluid">
-  <h3>Viagens <a href="../motoristacadastro" class="btn btn-success btn-sm active" role="button" aria-pressed="true" style='text-decoration: none;'>+</a></h3>
+  <h3>Viagens <a href="../viagemcadastro" class="btn btn-success btn-sm active" role="button" aria-pressed="true" style='text-decoration: none;'>+</a></h3>
 
   <button class="btn btn-xs btn-info"  (click)="exibirBarraDeBusca()">Pesquisar</button>
   <form #busca="ngForm">
@@ -23,13 +23,13 @@
       </tr>
     </thead>
       <tbody>
-        <tr *ngFor="let viagemlista of viagens">
-          <td>{{viagemlista.descricao}}</td>
-            <td>{{viagemlista.nome_cliente}}</td>
-              <td>{{viagemlista.nome_motorista}}</td>
+        <tr *ngFor="let viagem of viagens">
+          <td>{{viagem.descricao}}</td>
+            <td>{{viagem.nome_cliente}}</td>
+              <td>{{viagem.nome_motorista}}</td>
 
 
-            <div *ngIf="modoEdicao==true && viagemlista.key==motoristaEditar.key">
+            <!-- <div *ngIf="modoEdicao==true && viagem.key==motoristaEditar.key">
               <form  #edicao="ngForm" (submit)="alterarMotorista()">
                 <div>
                   <label for="nome">Código ID do Motorista: </label><br>
@@ -40,9 +40,6 @@
                   <input type="text" id="habilitacaoEditar" name="habilitacaoEditar" [(ngModel)]="motoristaEditar.hbt" required> <br>
                   <br>
 
-                  <!-- <label for="concluida">Disponível:</label>
-                  <input #checkMotoristaEditar type="checkbox" id="checkMotoristaEditar" [checked]="motoristaEditar.concluida"
-                    (change)="alterarAtributoConcluida(checkMotoristaEditar.checked)"> -->
                   </div>
 
                   <button type="submit" class="btn btn-primary">Editar</button>
@@ -50,14 +47,14 @@
 
               </form>
 
-            </div>
+            </div> -->
 
-          <td class="text-center"> <input type="checkbox" [checked]="viagemlista.alerta"> </td>
-          <td class="text-center"> <input type="checkbox" [checked]="viagemlista.concluida"> </td>
+          <td class="text-center"> <input type="checkbox" [checked]="viagem.alerta"> </td>
+          <td class="text-center"> <input type="checkbox" [checked]="viagem.concluida"> </td>
           <td class="text-center">
-            <button title="Editar" class="btn btn-xs btn-info" (click)="ativarModoEdicao(viagemlista)" >Editar</button>
-            <button title="Excluir" class="btn btn-xs btn-danger" (click)="excluirMotorista(viagemlista)" >Excluir</button>
-            <button title="Detalhes" class="btn btn-xs btn-warning" (click)="VerDetalhes(viagemlista)" >Detalhes</button>
+            <button title="Editar" class="btn btn-xs btn-info" (click)="ativarModoEdicao(viagem)" >Editar</button>
+            <button title="Excluir" class="btn btn-xs btn-danger" (click)="excluirMotorista(viagem)" >Excluir</button>
+            <button title="Detalhes" class="btn btn-xs btn-warning" (click)="VerDetalhes(viagem)" >Detalhes</button>
           </td>
         </tr>
         <div class="alert alert-primary" *ngIf="viagens && viagens.length == 0">

@@ -29,7 +29,7 @@ itemsClientes = [
     link: '/clientecadastro'
   },
   {
-    title: 'Ver Clintes',
+    title: 'Ver Clientes',
     link: '/clientelista'
   },
 ];
